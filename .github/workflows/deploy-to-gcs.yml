@@ -33,7 +33,7 @@ jobs:
 
       - name: build prebid.js
         run: |
-          gulp build --modules=openxBidAdaptor
+          gulp build --modules=openxBidAdapter,openxRtbAdapter
 
       - name: deploy prebid.js
         run: |
