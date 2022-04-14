@@ -4,7 +4,7 @@ name: deploy-to-gcs
 on:
   push:
     branches:
-      - 'refs/heads/live'
+      - live
 
 env:
   GCS_BUCKET: joelplm_prebidfledgetest
@@ -37,6 +37,4 @@ jobs:
 
       - name: deploy prebid.js
         run: |
-          if [ "${{github.ref}}" == "refs/heads/live" ]; then
-            gsutil cp build/dist/prebid.js gs://${GCS_BUCKET}/prebid/prebid.js;
-          fi;
+          gsutil cp build/dist/prebid.js gs://${GCS_BUCKET}/prebid/prebid.js;
