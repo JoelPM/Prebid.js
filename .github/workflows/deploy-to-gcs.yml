@@ -26,11 +26,13 @@ jobs:
         with:
           export_default_credentials: true
 
-      - name: build prebid.js 
+      - name: setup node
         uses: actions/setup-node@v3
         with:
           node-version: '14'
           cache: 'npm'
+
+      - name: build prebid.js
         run: |
           npm install gulp-cli -g
           gulp build --modules=openxBidAdapter,openxRtbAdapter
