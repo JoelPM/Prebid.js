@@ -16,11 +16,6 @@ jobs:
       - name: checkout
         uses: actions/checkout@v3
 
-      - name: setup node
-        uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-
       - id: auth
         uses: google-github-actions/auth@v0
         with:
@@ -31,8 +26,13 @@ jobs:
         with:
           export_default_credentials: true
 
-      - name: build prebid.js
+      - name: build prebid.js 
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+          cache: 'npm'
         run: |
+          npm install gulp-cli -g
           gulp build --modules=openxBidAdapter,openxRtbAdapter
 
       - name: deploy prebid.js
