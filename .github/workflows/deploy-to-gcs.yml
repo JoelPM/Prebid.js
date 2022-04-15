@@ -35,6 +35,7 @@ jobs:
       - name: build prebid.js
         run: |
           npm install gulp-cli -g
+          npm ci
           gulp build --modules=openxBidAdapter,openxRtbAdapter
 
       - name: deploy prebid.js
