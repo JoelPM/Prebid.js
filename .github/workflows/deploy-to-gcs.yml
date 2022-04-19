@@ -33,21 +33,9 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          source_file: 'build/dist/prebid.js'
+          source_file: 'build/dist/'
           destination_repo: 'joelpm/adcountability.com'
-          destination_folder: 'js/vendor/'
-          user_email: 'joel.meyer@gmail.com'
-          user_name: 'joelpm'
-          commit_message: 'auto-publish of prebid.js'
-
-      - name: publish prebid.js.map
-        uses: dmnemec/copy_file_to_another_repo_action@main
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-        with:
-          source_file: 'build/dist/prebid.js.map'
-          destination_repo: 'joelpm/adcountability.com'
-          destination_folder: 'js/vendor/'
+          destination_folder: 'js/vendor/prebid/'
           user_email: 'joel.meyer@gmail.com'
           user_name: 'joelpm'
           commit_message: 'auto-publish of prebid.js'
