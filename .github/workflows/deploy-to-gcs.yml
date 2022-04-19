@@ -36,14 +36,14 @@ jobs:
         run: |
           npm install gulp-cli -g
           npm ci
-          gulp build --modules=openxBidAdapter,openxRtbAdapter --dev=true
+          gulp build --modules=openxBidAdapter,openxRtbAdapter --sourceMaps=true
 
       - name: publish prebid.js
         uses: dmnemec/copy_file_to_another_repo_action@main
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          source_file: 'build/dist/prebid.js'
+          source_file: 'build/dist/prebid.js.*'
           destination_repo: 'joelpm/adcountability.com'
           destination_folder: 'js/vendor/'
           user_email: 'joel.meyer@gmail.com'
