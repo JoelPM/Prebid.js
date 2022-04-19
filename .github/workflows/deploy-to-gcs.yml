@@ -36,7 +36,7 @@ jobs:
         run: |
           npm install gulp-cli -g
           npm ci
-          gulp build --modules=openxBidAdapter,openxRtbAdapter
+          gulp build --modules=openxBidAdapter,openxRtbAdapter --dev=true
 
       - name: publish prebid.js
         uses: dmnemec/copy_file_to_another_repo_action@main
