@@ -28,7 +28,7 @@ jobs:
           npm ci
           gulp build --modules=openxBidAdapter,openxRtbAdapter --sourceMaps=true
 
-      - name: publish prebid.js 2
+      - name: publish prebid.js
         uses: cpina/github-action-push-to-another-repository@main
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
@@ -39,15 +39,3 @@ jobs:
           destination-repository-name: 'adcountability.com'
           user-email: joel.meyer@gmail.com
           target-branch: main
-
-      - name: publish prebid.js
-        uses: dmnemec/copy_file_to_another_repo_action@main
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-        with:
-          source_file: 'build/dist/'
-          destination_repo: 'joelpm/adcountability.com'
-          destination_folder: 'js/vendor/prebid/'
-          user_email: 'joel.meyer@gmail.com'
-          user_name: 'joelpm'
-          commit_message: 'auto-publish of prebid.js'
