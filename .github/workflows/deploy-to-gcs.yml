@@ -16,15 +16,15 @@ jobs:
       - name: checkout
         uses: actions/checkout@v3
 
-      - id: auth
-        uses: google-github-actions/auth@v0
-        with:
-          credentials_json: '${{ secrets.GCP_SA_KEY }}'
+#      - id: auth
+#        uses: google-github-actions/auth@v0
+#        with:
+#          credentials_json: '${{ secrets.GCP_SA_KEY }}'
           
-      - name: gcloud setup
-        uses: google-github-actions/setup-gcloud@v0
-        with:
-          export_default_credentials: true
+#      - name: gcloud setup
+#        uses: google-github-actions/setup-gcloud@v0
+#        with:
+#          export_default_credentials: true
 
       - name: setup node
         uses: actions/setup-node@v3
@@ -43,7 +43,7 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          source_file: 'build/dist/prebid.js build/dist/prebid.js.map'
+          source_file: 'build/dist/prebid.js' 'build/dist/prebid.js.map'
           destination_repo: 'joelpm/adcountability.com'
           destination_folder: 'js/vendor/'
           user_email: 'joel.meyer@gmail.com'
