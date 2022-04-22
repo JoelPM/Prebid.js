@@ -1,13 +1,10 @@
 ---
-name: deploy-to-gcs
+name: deploy-to-adcountability
 
 on:
   push:
     branches:
       - live
-
-env:
-  GCS_BUCKET: joelplm_prebidfledgetest
 
 jobs:
   build-and-deploy:
@@ -26,7 +23,7 @@ jobs:
         run: |
           npm install gulp-cli -g
           npm ci
-          gulp build --modules=openxBidAdapter,openxRtbAdapter --sourceMaps=true
+          gulp build --modules=openxRtbAdapter,consentManagement --sourceMaps=true
 
       - name: publish prebid.js
         uses: cpina/github-action-push-to-another-repository@main
