@@ -9,7 +9,7 @@ const bidderVersion = '1.0';
 const VIDEO_TARGETING = ['startdelay', 'mimes', 'minduration', 'maxduration',
   'startdelay', 'skippable', 'playbackmethod', 'api', 'protocols', 'boxingallowed',
   'linearity', 'delivery', 'protocol', 'placement', 'minbitrate', 'maxbitrate', 'ext'];
-export const REQUEST_URL = 'https://rtb.openx.net/openrtb/prebidjs';
+export const REQUEST_URL = 'https://rtb.openx.net/openrtbb/prebidjs';
 export const SYNC_URL = 'https://u.openx.net/w/1.0/pd';
 export const DEFAULT_PH = '2d1251ae-7f3a-47cf-bd2a-2f288854a0ba';
 export const spec = {
@@ -79,9 +79,6 @@ function createBannerRequest(bids, bidderRequest) {
     utils.deepSetValue(data, 'ext.trace_owner', traceOwner);
     utils.deepSetValue(data, 'ext.trace_id', traceID);
   }
-
-  // TODO(joelpm): Remove this and fix the server 
-  data.device.ip = '162.253.205.149';
 
   return {
     method: 'POST',
