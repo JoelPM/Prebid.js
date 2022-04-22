@@ -65,6 +65,7 @@ export const spec = {
   gvlid: 69,
   supportedMediaTypes: SUPPORTED_AD_TYPES,
   isBidRequestValid: function (bidRequest) {
+    debugger;
     const hasDelDomainOrPlatform = bidRequest.params.delDomain || bidRequest.params.platform;
     if (deepAccess(bidRequest, 'mediaTypes.banner') && hasDelDomainOrPlatform) {
       return !!bidRequest.params.unit || deepAccess(bidRequest, 'mediaTypes.banner.sizes.length') > 0;
@@ -73,6 +74,7 @@ export const spec = {
     return !!(bidRequest.params.unit && hasDelDomainOrPlatform);
   },
   buildRequests: function (bidRequests, bidderRequest) {
+    debugger;
     if (bidRequests.length === 0) {
       return [];
     }
