@@ -83,7 +83,8 @@ function createBannerRequest(bids, bidderRequest) {
   return {
     method: 'POST',
     url: REQUEST_URL,
-    data: data
+    data: data,
+    options: {contentType: 'application/json'}
   }
 }
 
@@ -187,7 +188,8 @@ function createVideoRequest(bid, bidderRequest) {
   return {
     method: 'POST',
     url: REQUEST_URL,
-    data: data
+    data: data,
+    options: {contentType: 'application/json'}
   }
 }
 
